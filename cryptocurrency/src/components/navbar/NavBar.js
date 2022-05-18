@@ -19,7 +19,7 @@ const NavBar = () => {
           <NavLink to="/">Home</NavLink>
         </Menu.Item>
         <Menu.Item icon={<FundOutlined />}>
-          <NavLink to="/cryptos">Cryptocurrencies</NavLink>
+          <NavLink to="/cryptocurrencies">Cryptocurrencies</NavLink>
         </Menu.Item>
         <Menu.Item icon={<MoneyCollectOutlined />}>
           <NavLink to="/exchanges">Exchanges</NavLink>
