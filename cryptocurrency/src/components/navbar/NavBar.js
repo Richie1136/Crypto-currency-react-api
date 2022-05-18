@@ -1,5 +1,5 @@
 import { Button, Menu, Typography, Avatar } from 'antd'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
 import icon from '../../images/cryptocurrency.png'
 
@@ -9,23 +9,23 @@ const NavBar = () => {
       <div className='logo-container'>
         <Avatar src={icon} size="large" />
         <Typography.Title className='logo' level={2}>
-          <Link to="/">Crypto</Link>
+          <NavLink to="/">Crypto</NavLink>
         </Typography.Title>
         {/* <Button className='menu-control-container'>
         </Button> */}
       </div>
       <Menu theme='dark'>
         <Menu.Item icon={<HomeOutlined />}>
-          <Link to="/"></Link>
+          <NavLink to="/">Home</NavLink>
         </Menu.Item>
         <Menu.Item icon={<FundOutlined />}>
-          <Link to="/cryptos">Cryptocurrencies</Link>
+          <NavLink to="/cryptos">Cryptocurrencies</NavLink>
         </Menu.Item>
         <Menu.Item icon={<MoneyCollectOutlined />}>
-          <Link to="/exchanges">Exchanges</Link>
+          <NavLink to="/exchanges">Exchanges</NavLink>
         </Menu.Item>
         <Menu.Item icon={<BulbOutlined />}>
-          <Link to="/news">News</Link>
+          <NavLink to="/news">News</NavLink>
         </Menu.Item>
       </Menu>
     </div>
