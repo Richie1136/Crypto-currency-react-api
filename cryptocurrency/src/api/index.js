@@ -1,25 +1,23 @@
-// import axios from "axios";
+import axios from "axios";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query'
 
-// export const getCoinsData = async () => {
+const cryptoHeaders = {
+  headers: {
+    'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com',
+    'X-RapidAPI-Key': '655bdaa00dmsh1dfed893f79b687p102403jsn162126e9f66e'
+  }
+}
 
-//   try {
-//     // request
-//     const { data: { data } } = await axios.get('https://coinranking1.p.rapidapi.com/coins', {
-//       params: {
-//         referenceCurrencyUuid: 'yhjMzLPhuIDl',
-//         timePeriod: '24h',
-//         'tiers[0]': '1',
-//         orderBy: 'marketCap',
-//         orderDirection: 'desc',
-//         limit: '50',
-//       },
-//       headers: {
-//         'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com',
-//         'X-RapidAPI-Key': '655bdaa00dmsh1dfed893f79b687p102403jsn162126e9f66e'
-//       }
-//     });
-//     return data;
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+const cryptoUrl = 'https://coinranking1.p.rapidapi.com/coins'
+
+const createRequests = (url) => ({ url, headers: cryptoHeaders })
+
+export const cryptoApi = createApi({
+  reducerPath: 'cryptoApi',
+  baseQuery: fetchBaseQuery({ baseUrl: cryptoUrl }),
+  endpoints: (builder) => ({
+    getCryptos: builder.query({
+      query: () => createRequests('/exchanges')
+    })
+  })
+})
