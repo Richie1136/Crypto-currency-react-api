@@ -3,12 +3,13 @@ import { Typography, Row, Col, Statistic } from 'antd'
 import { useGetCryptosQuery } from '../../api';
 import Loading from '../loading/Loading'
 import { NavLink } from 'react-router-dom';
+import Cryptocurrencies from '../cryptocurrencies/Cryptocurrencies';
+import News from '../news/News'
+
 
 const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery()
   const globalStats = data?.data?.stats;
-
-  console.log(data)
 
   if (isFetching) return <Loading />
 
@@ -28,8 +29,13 @@ const Homepage = () => {
       <div className='home-heading-container'>
         <Typography.Title className="home-title" level={2}>Top 10 Cryptocurrencies in the World</Typography.Title>
         <Typography.Title className="show-more" level={3}><NavLink to='/cyptocurrencies'>Show More</NavLink></Typography.Title>
-
       </div>
+      <Cryptocurrencies simplified />
+      <div className='home-heading-container'>
+        <Typography.Title className="home-title" level={2}>Latest Crypto News</Typography.Title>
+        <Typography.Title className="show-more" level={3}><NavLink to='/news'>Show More</NavLink></Typography.Title>
+      </div>
+      <News simplified />
     </>
   )
 }
