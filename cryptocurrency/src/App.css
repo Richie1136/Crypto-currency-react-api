@@ -374,6 +374,4 @@ a:hover {
   flex-direction: column;
   padding: 20px;
   align-items: center;
-  position: fixed;
-  bottom: 0;
 }
