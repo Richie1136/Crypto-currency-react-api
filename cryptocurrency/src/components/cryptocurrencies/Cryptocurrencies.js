@@ -24,7 +24,7 @@ const Cryptocurrencies = ({ simplified }) => {
             <NavLink to={`/crypto/${crypto.id}`}>
               <Card
                 title={`${crypto.rank}.${crypto.name}`}
-                extra={<img className="crypto-image" src={crypto.iconUrl} />}
+                extra={<img className="crypto-image" src={crypto.iconUrl} alt="crypto-img" />}
                 hoverable
               >
                 <p>Price: ${millify(crypto.price)}</p>
