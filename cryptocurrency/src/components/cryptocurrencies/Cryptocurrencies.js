@@ -10,11 +10,12 @@ import Loading from "../loading/Loading"
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count)
-  const [cryptos, setCryptos] = useState(cryptosList?.data.coins)
+  const [cryptos, setCryptos] = useState([])
   const [search, setSearch] = useState('')
 
   useEffect(() => {
     const filteredData = cryptosList?.data.coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()));
+
     setCryptos(filteredData)
   }, [search, cryptosList])
 
@@ -29,9 +30,11 @@ const Cryptocurrencies = ({ simplified }) => {
 
   return (
     <>
-      <div className="search-crypto">
-        <Input placeholder="Search Cryptocurrencies" onChange={handleChange} value={search} />
-      </div>
+      {!simplified && (
+        <div className="search-crypto">
+          <Input placeholder="Search Cryptocurrencies" onChange={handleChange} value={search} />
+        </div>
+      )}
       <Row className="crypto-card-container" gutter={[32, 32]}>
         {cryptos?.map((crypto) => (
           <Col key={crypto.id} className="crypto-card" xs={24} sm={12} lg={6}>
