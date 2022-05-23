@@ -28,7 +28,7 @@ const Homepage = () => {
       </Row>
       <div className='home-heading-container'>
         <Typography.Title className="home-title" level={2}>Top 10 Cryptocurrencies in the World</Typography.Title>
-        <Typography.Title className="show-more" level={3}><NavLink to='/cyptocurrencies'>Show More</NavLink></Typography.Title>
+        <Typography.Title className="show-more" level={3}><NavLink to='/cryptocurrencies'>Show More</NavLink></Typography.Title>
       </div>
       <Cryptocurrencies simplified />
       <div className='home-heading-container'>

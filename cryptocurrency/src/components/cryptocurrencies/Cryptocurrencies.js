@@ -8,7 +8,7 @@ import Loading from "../loading/Loading"
 // Millify converts really long numbers to human readable numbers
 
 const Cryptocurrencies = ({ simplified }) => {
-  const count = simplified ? 10 : 100
+  const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count)
   const [cryptos, setCryptos] = useState(cryptosList?.data.coins)
 
