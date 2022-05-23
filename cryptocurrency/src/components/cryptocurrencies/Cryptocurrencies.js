@@ -2,7 +2,7 @@ import millify from "millify"
 import { NavLink } from "react-router-dom"
 import { Card, Row, Col, Input } from "antd"
 import { useGetCryptosQuery } from "../../api"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Loading from "../loading/Loading"
 
 // Millify converts really long numbers to human readable numbers
@@ -11,13 +11,26 @@ const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count)
   const [cryptos, setCryptos] = useState(cryptosList?.data.coins)
+  const [search, setSearch] = useState('')
 
+  useEffect(() => {
+    setCryptos(cryptosList?.data.coins)
+  }, [search, cryptosList])
 
   if (isFetching) return <Loading />
+
+  const handleChange = (event) => {
+    setSearch(event.target.value)
+  }
+
+
 
 
   return (
     <>
+      <div className="search-crypto">
+        <Input placeholder="Search Cryptocurrencies" onChange={handleChange} value={search} />
+      </div>
       <Row className="crypto-card-container" gutter={[32, 32]}>
         {cryptos?.map((crypto) => (
           <Col key={crypto.id} className="crypto-card" xs={24} sm={12} lg={6}>
