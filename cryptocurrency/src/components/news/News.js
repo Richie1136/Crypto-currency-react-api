@@ -10,6 +10,8 @@ const News = ({ simplified }) => {
 
   console.log(cryptoNews)
 
+  const defaultImage = 'http://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg'
+
   if (!cryptoNews?.value) return <Loading />
 
 
@@ -27,8 +29,9 @@ const News = ({ simplified }) => {
                   <Typography.Title className="news-title" level={4}>
                     {news.name}
                   </Typography.Title>
-                  <img src={news?.image?.thumbnail.contentUrl} />
+                  <img src={news?.image?.thumbnail.contentUrl || defaultImage} height="100" width="100" alt="crypto-img" />
                 </div>
+                <p>{news.description > 100 ? `${news.description.substring(0, 100)}...` : news.description}</p>
               </a>
             </Card>
           </Col>
