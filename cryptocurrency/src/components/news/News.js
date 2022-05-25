@@ -32,6 +32,11 @@ const News = ({ simplified }) => {
                   <img src={news?.image?.thumbnail.contentUrl || defaultImage} height="100" width="100" alt="crypto-img" />
                 </div>
                 <p>{news.description > 100 ? `${news.description.substring(0, 100)}...` : news.description}</p>
+                <div className="container">
+                  <div>
+                    <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl || defaultImage} />
+                  </div>
+                </div>
               </a>
             </Card>
           </Col>
