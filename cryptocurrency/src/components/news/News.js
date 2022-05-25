@@ -35,10 +35,13 @@ const News = ({ simplified }) => {
                 <div className="container">
                   <div>
                     <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl || defaultImage} />
-                    <Typography.Text className="news-title" level={4}>
-                      {moment(news.datePublished).startOf('ss').fromNow()}
+                    <Typography.Text className="name" style={{ 'marginLeft': '10px' }}>
+                      {news.provider[0]?.name}
                     </Typography.Text>
                   </div>
+                  <Typography.Text>
+                    {moment(news.datePublished).startOf('ss').fromNow()}
+                  </Typography.Text>
                 </div>
               </a>
             </Card>
