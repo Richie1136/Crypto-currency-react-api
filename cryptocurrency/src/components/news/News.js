@@ -29,7 +29,7 @@ const News = ({ simplified }) => {
                   <Typography.Title className="news-title" level={4}>
                     {news.name}
                   </Typography.Title>
-                  <img src={news?.image?.thumbnail.contentUrl || defaultImage} height="100" width="100" alt="crypto-img" />
+                  <img style={{ maxHeight: "100px", maxWidth: "200px" }} src={news?.image?.thumbnail.contentUrl || defaultImage} alt="crypto-img" />
                 </div>
                 <p>{news.description > 100 ? `${news.description.substring(0, 100)}...` : news.description}</p>
                 <div className="container">
