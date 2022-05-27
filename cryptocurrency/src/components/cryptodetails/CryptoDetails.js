@@ -2,7 +2,7 @@ import { useState } from 'react'
 import HTMLReactParser from "html-react-parser"
 import { useParams } from "react-router-dom"
 import millify from "millify"
-import { Col, Row, Typogrpahy, Select } from "antd"
+import { Col, Row, Select, Typography } from "antd"
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { useGetCryptoDetailsQuery } from '../../api'
 
@@ -33,10 +33,36 @@ const CryptoDetails = () => {
     { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
   ];
 
+  const handleChange = (value) => {
+    setTimePeriod(value)
+  }
+
   console.log(data?.data.coin)
   return (
-    <Col span={24}>
-      {cryptoDetails?.description}
+    <Col className='coin-detail-container' span={24}>
+      <Col className='coin-heading-container'>
+        <Typography.Title className="coin-name" level={2}>
+          {cryptoDetails?.name} Price
+        </Typography.Title>
+        <p>
+          {cryptoDetails?.name} live price in US dollars
+          View value statistics, market cap and supply
+        </p>
+      </Col>
+      <Select className='select-timeperiod' defaultValue='7d' placeholder="Select Time Period" onChange={handleChange} >
+        {time.map((date) => {
+          return <Select.Option key={date}>{date}</Select.Option>
+        })}
+      </Select>
+      <Col className='stats-container'>
+        <Col className='coin-value-statistics'>
+          <Col className='coin-value-statistics-heading'>
+            <Typography.Title className='coin-details-heading' level={3}>
+              {cryptoDetails.name} Value Statistics
+            </Typography.Title>
+          </Col>
+        </Col>
+      </Col>
     </Col>
   )
 }
