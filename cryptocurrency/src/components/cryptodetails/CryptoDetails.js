@@ -20,7 +20,6 @@ const CryptoDetails = () => {
   const stats = [
     { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
     { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined /> },
-    { title: '24h Volume', value: `$ ${cryptoDetails?.volume && millify(cryptoDetails?.volume)}`, icon: <ThunderboltOutlined /> },
     { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <DollarCircleOutlined /> },
     { title: 'All-time-high(daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && millify(cryptoDetails?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
   ];
@@ -58,9 +57,36 @@ const CryptoDetails = () => {
         <Col className='coin-value-statistics'>
           <Col className='coin-value-statistics-heading'>
             <Typography.Title className='coin-details-heading' level={3}>
-              {cryptoDetails.name} Value Statistics
+              {cryptoDetails?.name} Value Statistics
             </Typography.Title>
+            <p>An overview showing the stats of {cryptoDetails?.name}</p>
           </Col>
+          {stats?.map(({ icon, title, value }) => (
+            <Col className='coin-stats'>
+              <Col className='coin-stats-name'>
+                <Typography.Text>{icon}</Typography.Text>
+                <Typography.Text>{title}</Typography.Text>
+              </Col>
+              <Typography.Text className='stats'>{value}</Typography.Text>
+            </Col>
+          ))}
+        </Col>
+        <Col className='other-stats-info'>
+          <Col className='coin-value-statistics-heading'>
+            <Typography.Title className='coin-details-heading' level={3}>
+              Other Statistics
+            </Typography.Title>
+            <p>An overview showing the stats of {cryptoDetails?.name}</p>
+          </Col>
+          {genericStats?.map(({ icon, title, value }) => (
+            <Col className='coin-stats'>
+              <Col className='coin-stats-name'>
+                <Typography.Text>{icon}</Typography.Text>
+                <Typography.Text>{title}</Typography.Text>
+              </Col>
+              <Typography.Text className='stats'>{value}</Typography.Text>
+            </Col>
+          ))}
         </Col>
       </Col>
     </Col>
