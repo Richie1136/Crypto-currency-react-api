@@ -76,7 +76,7 @@ const CryptoDetails = () => {
             <Typography.Title className='coin-details-heading' level={3}>
               Other Statistics
             </Typography.Title>
-            <p>An overview showing the stats of {cryptoDetails?.name}</p>
+            <p>An overview showing the stats of all Cryptocurrencies</p>
           </Col>
           {genericStats?.map(({ icon, title, value }) => (
             <Col className='coin-stats'>
@@ -88,6 +88,14 @@ const CryptoDetails = () => {
             </Col>
           ))}
         </Col>
+      </Col>
+      <Col className='coin-desc-link'>
+        <Row className='coin-desc'>
+          <Typography.Title className='coin-details-heading' level={3}>
+            What is {cryptoDetails.name}
+            {HTMLReactParser(cryptoDetails.description)}
+          </Typography.Title>
+        </Row>
       </Col>
     </Col>
   )
