@@ -25,9 +25,6 @@ const Cryptocurrencies = ({ simplified }) => {
     setSearch(event.target.value)
   }
 
-
-
-
   return (
     <>
       {!simplified && (

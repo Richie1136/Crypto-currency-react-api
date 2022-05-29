@@ -42,7 +42,7 @@ const News = ({ simplified }) => {
             >
               <Select.Option value="Cryptocurrency">Cryptocurrency</Select.Option>
               {data?.data?.coins.map((coin) => {
-                return <Select.Option value={coin.name}>{coin.name}</Select.Option>
+                return <Select.Option key={coin.uuid} value={coin.name}>{coin.name}</Select.Option>
               })}
             </Select>
           </Col>

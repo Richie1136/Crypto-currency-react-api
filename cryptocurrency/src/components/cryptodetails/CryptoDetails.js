@@ -49,7 +49,7 @@ const CryptoDetails = () => {
       </Col>
       <Select className='select-timeperiod' defaultValue='7d' placeholder="Select Time Period" onChange={handleChange} >
         {time.map((date) => {
-          return <Select.Option key={date}>{date}</Select.Option>
+          return <Select.Option key={date.uuid}>{date}</Select.Option>
         })}
       </Select>
       <Col className='stats-container'>
@@ -100,7 +100,7 @@ const CryptoDetails = () => {
             {cryptoDetails?.name} Links
           </Typography.Title>
           {cryptoDetails?.links.map((link) => (
-            <Row key={link.name} className='coin-link'>
+            <Row key={link.uuid} className='coin-link'>
               <Typography.Title className='link-name' level={5}>
                 {link.type}
               </Typography.Title>
