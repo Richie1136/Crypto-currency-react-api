@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import HTMLReactParser from "html-react-parser"
+import HTMLReactParser from 'html-react-parser';
 import { useParams } from "react-router-dom"
 import millify from "millify"
 import { Col, Row, Select, Typography } from "antd"
@@ -36,7 +36,6 @@ const CryptoDetails = () => {
     setTimePeriod(value)
   }
 
-  console.log(data?.data.coin)
   return (
     <Col className='coin-detail-container' span={24}>
       <Col className='coin-heading-container'>
@@ -92,10 +91,25 @@ const CryptoDetails = () => {
       <Col className='coin-desc-link'>
         <Row className='coin-desc'>
           <Typography.Title className='coin-details-heading' level={3}>
-            What is {cryptoDetails.name}
-            {HTMLReactParser(cryptoDetails.description)}
+            What is {cryptoDetails?.name}
+            {cryptoDetails?.description}
           </Typography.Title>
         </Row>
+        <Col className='coin-links'>
+          <Typography.Title className='coin-details-heading' level={3}>
+            {cryptoDetails?.name} Links
+          </Typography.Title>
+          {cryptoDetails?.links.map((link) => (
+            <Row key={link.name} className='coin-link'>
+              <Typography.Title className='link-name' level={5}>
+                {link.type}
+              </Typography.Title>
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.name}
+              </a>
+            </Row>
+          ))}
+        </Col>
       </Col>
     </Col>
   )
