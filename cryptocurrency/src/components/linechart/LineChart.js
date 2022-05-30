@@ -2,7 +2,15 @@ import { Line } from "react-chartjs-2"
 import { Row, Col, Typography } from "antd"
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
-  console.log(coinHistory)
+
+  const coinPrice = []
+  const coinTimeStamp = []
+
+  for (let i = 0; i < coinHistory?.data?.history?.length; i++) {
+    coinPrice.push(coinHistory.data.history[i].price)
+    coinTimeStamp.push(new Date(coinHistory.data.history[i].timestamp).toLocaleDateString())
+  }
+
   return (
     <>
       <Row className="chart-header">
@@ -18,6 +26,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
           </Typography.Title>
         </Col>
       </Row>
+      <Line data={data} options={options} />
     </>
   )
 }
