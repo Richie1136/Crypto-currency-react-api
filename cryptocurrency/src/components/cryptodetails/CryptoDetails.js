@@ -21,7 +21,6 @@ const CryptoDetails = () => {
 
 
   const cryptoDetails = data?.data.coin
-  console.log(cryptoDetails.change)
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y']
 
@@ -61,8 +60,6 @@ const CryptoDetails = () => {
         })}
       </Select>
       <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
-
-      {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} /> */}
       <Col className='stats-container'>
         <Col className='coin-value-statistics'>
           <Col className='coin-value-statistics-heading'>
@@ -103,7 +100,7 @@ const CryptoDetails = () => {
         <Row className='coin-desc'>
           <Typography.Title className='coin-details-heading' level={3}>
             What is {cryptoDetails?.name}
-            {cryptoDetails?.description}
+            {HTMLReactParser(cryptoDetails.description)}
           </Typography.Title>
         </Row>
         <Col className='coin-links'>
