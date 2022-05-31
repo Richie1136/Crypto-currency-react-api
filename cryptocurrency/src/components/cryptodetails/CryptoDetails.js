@@ -19,7 +19,6 @@ const CryptoDetails = () => {
 
   if (isFetching) return <Loading />
 
-
   const cryptoDetails = data?.data.coin
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y']
@@ -47,16 +46,16 @@ const CryptoDetails = () => {
     <Col className='coin-detail-container' span={24}>
       <Col className='coin-heading-container'>
         <Typography.Title className="coin-name" level={2}>
-          {cryptoDetails?.name} Price
+          {cryptoDetails?.name} ({cryptoDetails?.symbol}) Price
         </Typography.Title>
         <p>
-          {cryptoDetails?.name} live price in US dollars
+          {cryptoDetails?.name} live price in US Dollar(USD)
           View value statistics, market cap and supply
         </p>
       </Col>
       <Select className='select-timeperiod' defaultValue='7d' placeholder="Select Time Period" onChange={handleChange} >
         {time.map((date) => {
-          return <Select.Option key={date.uuid}>{date}</Select.Option>
+          return <Select.Option key={date}>{date}</Select.Option>
         })}
       </Select>
       <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
