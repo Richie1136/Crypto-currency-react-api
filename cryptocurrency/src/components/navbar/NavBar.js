@@ -35,20 +35,22 @@ const NavBar = () => {
           <NavLink to="/">Crypto</NavLink>
         </Typography.Title>
       </div>
-      <Menu theme='dark'>
-        <Menu.Item icon={<HomeOutlined />}>
-          <NavLink to="/">Home</NavLink>
-        </Menu.Item>
-        <Menu.Item icon={<FundOutlined />}>
-          <NavLink to="/cryptocurrencies">Cryptocurrencies</NavLink>
-        </Menu.Item>
-        <Menu.Item icon={<MoneyCollectOutlined />}>
-          <NavLink to="/exchanges">Exchanges</NavLink>
-        </Menu.Item>
-        <Menu.Item icon={<BulbOutlined />}>
-          <NavLink to="/news">News</NavLink>
-        </Menu.Item>
-      </Menu>
+      {activeMenu && (
+        <Menu theme='dark'>
+          <Menu.Item icon={<HomeOutlined />}>
+            <NavLink to="/">Home</NavLink>
+          </Menu.Item>
+          <Menu.Item icon={<FundOutlined />}>
+            <NavLink to="/cryptocurrencies">Cryptocurrencies</NavLink>
+          </Menu.Item>
+          <Menu.Item icon={<MoneyCollectOutlined />}>
+            <NavLink to="/exchanges">Exchanges</NavLink>
+          </Menu.Item>
+          <Menu.Item icon={<BulbOutlined />}>
+            <NavLink to="/news">News</NavLink>
+          </Menu.Item>
+        </Menu>
+      )}
     </div>
   )
 }
