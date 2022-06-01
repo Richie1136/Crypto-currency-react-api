@@ -19,7 +19,13 @@ const NavBar = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-
+  useEffect(() => {
+    if (screenSize < 768) {
+      setActiveMenu(false)
+    } else {
+      setActiveMenu(true)
+    }
+  }, [screenSize])
 
   return (
     <div className='nav-container'>
