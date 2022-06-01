@@ -2,8 +2,25 @@ import { Button, Menu, Typography, Avatar } from 'antd'
 import { NavLink } from 'react-router-dom'
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
 import icon from '../../images/cryptocurrency.png'
+import { useState, useEffect } from 'react'
 
 const NavBar = () => {
+
+  const [activeMenu, setActiveMenu] = useState(true)
+  const [screenSize, setScreenSize] = useState(null)
+
+  const handleResize = () => {
+    setScreenSize(window.innerWidth)
+  }
+
+  useEffect(() => {
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+
+
   return (
     <div className='nav-container'>
       <div className='logo-container'>
