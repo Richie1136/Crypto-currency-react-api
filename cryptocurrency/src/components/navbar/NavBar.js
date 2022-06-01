@@ -13,6 +13,10 @@ const NavBar = () => {
     setScreenSize(window.innerWidth)
   }
 
+  const handleClick = () => {
+    setActiveMenu(true)
+  }
+
   useEffect(() => {
     handleResize()
     window.addEventListener('resize', handleResize)
@@ -34,6 +38,9 @@ const NavBar = () => {
         <Typography.Title className='logo' level={2}>
           <NavLink to="/">Crypto</NavLink>
         </Typography.Title>
+        <Button className='menu-control-container' onClick={handleClick}>
+          <MenuOutlined />
+        </Button>
       </div>
       {activeMenu && (
         <Menu theme='dark'>
