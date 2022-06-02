@@ -50,9 +50,6 @@ const NavBar = () => {
           <Menu.Item icon={<FundOutlined />}>
             <NavLink to="/cryptocurrencies">Cryptocurrencies</NavLink>
           </Menu.Item>
-          <Menu.Item icon={<MoneyCollectOutlined />}>
-            <NavLink to="/exchanges">Exchanges</NavLink>
-          </Menu.Item>
           <Menu.Item icon={<BulbOutlined />}>
             <NavLink to="/news">News</NavLink>
           </Menu.Item>
