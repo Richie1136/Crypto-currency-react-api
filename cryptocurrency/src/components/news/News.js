@@ -16,7 +16,6 @@ const News = ({ simplified }) => {
 
   const { data: cryptoNews } = useGetCryptosNewsQuery({ newsCategory, count: simplified ? 6 : 12 })
 
-  console.log(cryptoNews)
 
   const defaultImage = 'http://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg'
 
