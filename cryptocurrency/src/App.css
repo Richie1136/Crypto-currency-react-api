@@ -330,6 +330,7 @@ a:hover {
   gap: 20px !important;
   align-items: center !important;
   flex-wrap: wrap !important;
+  margin: 0 auto;
 }
 .price-change {
   font-weight: 900 !important;

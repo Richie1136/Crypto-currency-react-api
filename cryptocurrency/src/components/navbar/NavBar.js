@@ -14,7 +14,7 @@ const NavBar = () => {
   }
 
   const handleClick = () => {
-    setActiveMenu(true)
+    setActiveMenu(!activeMenu)
   }
 
   useEffect(() => {
