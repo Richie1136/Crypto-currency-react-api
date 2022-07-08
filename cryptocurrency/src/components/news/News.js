@@ -54,10 +54,9 @@ const News = ({ simplified }) => {
             >
               <a href={news.url} target="_blank" rel="noreferrer">
                 <div className="news-image-container">
-                  <Typography.Title className="news-title" level={4}>
+                  <Typography.Title className="news-title" style={{ width: '400px' }} level={4}>
                     {news.name}
                   </Typography.Title>
-                  <img style={{ maxHeight: "100px", maxWidth: "200px" }} src={news?.image?.thumbnail.contentUrl || defaultImage} alt="crypto-img" />
                 </div>
                 <p>{news.description > 100 ? `${news.description.substring(0, 100)}...` : news.description}</p>
                 <div className="container">
@@ -69,6 +68,8 @@ const News = ({ simplified }) => {
                   </div>
                   <Typography.Text>
                     {moment(news.datePublished).startOf('ss').fromNow()}
+                    <img style={{ maxHeight: "100px", maxWidth: "100px", float: 'right', alignSelf: 'baseline', marginLeft: '28px' }} src={news?.image?.thumbnail.contentUrl || defaultImage} alt="crypto-img" />
+
                   </Typography.Text>
                 </div>
               </a>
