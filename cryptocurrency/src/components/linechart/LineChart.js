@@ -1,4 +1,5 @@
 import { Row, Col, Typography } from "antd"
+
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
 
   console.log(currentPrice)

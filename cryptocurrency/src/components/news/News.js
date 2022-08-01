@@ -47,6 +47,7 @@ const News = ({ simplified }) => {
           </Col>
         )}
         {cryptoNews?.value.map((news, i) => (
+
           <Col key={i} xs={24} sm={12} lg={6}>
             <Card
               className="news-card"
@@ -69,7 +70,6 @@ const News = ({ simplified }) => {
                   <Typography.Text>
                     {moment(news.datePublished).startOf('ss').fromNow()}
                     <img style={{ maxHeight: "100px", maxWidth: "100px", float: 'right', alignSelf: 'baseline', marginLeft: '28px' }} src={news?.image?.thumbnail.contentUrl || defaultImage} alt="crypto-img" />
-
                   </Typography.Text>
                 </div>
               </a>
